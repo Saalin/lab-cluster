@@ -1,0 +1,30 @@
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: HelmRepository
+metadata:
+  name: envoy
+  namespace: flux-system
+spec:
+  type: oci
+  url: oci://docker.io/envoyproxy
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: envoy-gateway
+  namespace: envoy-gateway-system
+spec:
+  interval: 5m
+  chart:
+    spec:
+      chart: gateway-helm
+      sourceRef:
+        kind: HelmRepository
+        name: envoy
+        namespace: flux-system
+  values:
+    service:
+      type: NodePort
+      ports:
+        https:
+          port: 443
+          nodePort: 30443

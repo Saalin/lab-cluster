@@ -7,3 +7,4 @@ resources:
   - cert-manager.yaml
   - gateway.yaml
   - https://github.com/kubernetes-sigs/gateway-api/releases/download/v1.1.0/standard-install.yaml
+  - class.yaml

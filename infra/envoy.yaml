@@ -26,13 +26,6 @@ spec:
         kind: HelmRepository
         name: envoy
         namespace: flux-system
-  values:
-    service:
-      type: NodePort
-      ports:
-        https:
-          port: 443
-          nodePort: 30443
 ---
 apiVersion: v1
 kind: Service

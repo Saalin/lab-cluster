@@ -9,11 +9,6 @@ spec:
     kubernetes:
       envoyService:
         type: NodePort
-        ports:
-          - name: https
-            port: 443
-            targetPort: 10443
-            nodePort: 30443
 ---
 apiVersion: gateway.networking.k8s.io/v1
 kind: GatewayClass
